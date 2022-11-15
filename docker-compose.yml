@@ -2,7 +2,7 @@ version: "3"
 
 services:
   backend:
-      build: ./src/
+      image: registry.gitlab.com/tlabmics/mics
       ports:
         - 3000:3000
       volumes:
