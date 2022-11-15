@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  backend:
+      build: ./src/
+      ports:
+        - 3000:3000
+      volumes:
+        - ./src/:/app
+      depends_on:
+        - db
+      command: >
+        sh -c "npm install &&
+               npm start"
+
+  db:
+      image: mysql:8.0
+      ports:
+        - 3306:3306
+      environment:
+        - MYSQL_DATABASE==micsdb
+        - MYSQL_USER==tlab_admin
+        - MYSQL_ROOT_PASSWORD==3d1g5321
